@@ -1,10 +1,13 @@
 const express = require('express');
 require('dotenv').config();
+const cors = require('cors');
 
 const movieRouter = require('./routers/movieRouter');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 // Middleware per file statici (immagini in /public)
 app.use(express.static('public'));
